@@ -1,0 +1,117 @@
+
+<div class="pagina">
+  <!-- MENU -->
+  <mat-toolbar class="tbar" color="primary">
+
+    <div class="tbar-1">
+      <button [ngClass]="calculateClasses()" type="button" (click)="sidenav.toggle(); toggleState()">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img class="logo" src="assets/MeiosDigitaisCAIXA.png">
+      </button>
+    
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="" routerLinkActive="active">Monitor</button>
+        <button mat-menu-item routerLink="/grandesnumeros"  routerLinkActive="active">Grandes Números</button>
+        <button mat-menu-item routerLink="/top-erros" routerLinkActive="active">Top Erros</button>
+        <button disabled mat-menu-item>Campanhas</button>
+      </mat-menu>
+    </div>
+ 
+    <div class="tbar-2">
+
+      <span class="btnavbar">{{produtoSelecionado}}</span>
+
+      <div *ngIf="btSpin;then hoverStop else clickPlay">here is ignored</div>
+
+      <ng-template #clickPlay>
+        <!-- <button class="btatualiza" type="button" mat-button (click)="iterador($event)" (mouseup)="start($event)"> -->
+        <button class="btatualiza" type="button" mat-button (click)="openDialog($event)">
+          <fa name="play-circle" size="2x"></fa>
+        </button>
+      </ng-template>
+
+      <ng-template #hoverStop>
+        <button class="btatualiza" type="button" mat-button (click)="stop($event)">
+          <fa name="refresh" animation="spin" size="2x"></fa>
+        </button>
+      </ng-template>
+    </div>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="drawer-container">
+
+    <!-- SIDENAV -->
+    <mat-sidenav #sidenav class="drawer-sidenav" (closed)="closedState()">
+      <app-drawer-monitor (navToggle)="sidenav.toggle()" (onSelected)="recebeProduto($event)"></app-drawer-monitor>
+    </mat-sidenav>
+
+    <!-- LINHA DE BOTOES ACIMA DOS GRÁFICOS -->
+    <mat-toolbar class="tbarbuttons">
+
+        <a routerLink="/monitor"><button mat-button color="primary" >HOJE</button></a>
+        <a routerLink="/monitor-ontem"><button mat-button color="primary" >ONTEM</button></a>
+        <button mat-stroked-button color="primary" >MÊS</button>
+        <a routerLink="/monitor-ano"><button mat-button color="primary" >ANO</button></a>
+
+      <app-subtitulo-mes class="posicao" [idProduto]='idSelecionado'></app-subtitulo-mes>
+
+    </mat-toolbar>  
+
+    <!-- GRÁFICOS -->
+     
+      <div class="content">
+      <mat-card class="card-movimento">
+        <mat-card-title >Movimento - Mês
+        </mat-card-title>
+        <app-movimento-mes [idProduto]='idSelecionado'></app-movimento-mes>
+      </mat-card>
+
+      <mat-card class="card-totais">
+        <mat-card-title>
+          <span mdTooltip="Acumulados desde o início do dia">Totais - Mês
+          </span>
+        </mat-card-title>
+        <app-totais-mes [idProduto]='idSelecionado'></app-totais-mes>
+      </mat-card>
+    </div>
+
+    <div class="content2">
+        <mat-card class="card-donut">
+        <mat-card-title >Meta - Mês
+          <span></span>
+        </mat-card-title>
+        <app-donut-mes [idProduto]='idSelecionado'></app-donut-mes>
+      </mat-card>
+
+      <mat-card class="card-erros">
+        <mat-card-title>Erros - Mês
+          <span></span>
+        </mat-card-title>
+        
+        <app-erros-mes [idProduto]='idSelecionado'></app-erros-mes>
+        <!-- <app-erros-percent [idProduto]='idSelecionado'></app-erros-percent>  -->
+      </mat-card>
+
+      <!-- <mat-card fxFlex="65"> -->
+      <mat-card class="card-acumulado">
+        <mat-card-title align="center">Acumulado - Mês
+          <!-- <span fxFlex></span> -->
+          <!-- <span></span>
+          <app-subtitulo [idProduto]='idSelecionado'></app-subtitulo> -->
+        </mat-card-title>
+        <app-acumulado-mes [idProduto]='idSelecionado'></app-acumulado-mes>
+      </mat-card>
+
+    </div>
+      
+  </mat-sidenav-container>
+</div>
+
+
+

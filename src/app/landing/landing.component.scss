@@ -1,0 +1,18 @@
+img {
+    // max-width: 100%;
+    // height: auto;
+    object-fit: cover;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+    margin: auto;
+}
+
+div  { 
+    background: linear-gradient(141deg, #0f6cb8 0%, #1fc8db 51%, #2cb5e8 75%); /* Standard syntax (must be last) */
+    background-size: cover;
+    height: 950px;
+    padding: 10px;
+    background-size: cover;
+  }

@@ -1,0 +1,42 @@
+.subtitulo {
+    background-color: #093170;
+    color: #E3E6EA;
+    font-family: futura85;
+    font-size: 1.3em;
+    padding-left: 60px;
+    padding-right: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 3px 5px rgba(0, 0, 0, .16); 
+  }
+
+.tb_nome {
+    font-family: Roboto;
+    color: rgb(44, 44, 44);
+    font-size: 14px;
+    
+    margin-bottom: 20px;
+    align-items: right;
+    // padding-right: 10px;
+   // max-height: 24px;
+  }
+
+  .example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    margin-top: -10px;
+    height: 24px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    height: 18px;
+    width: 100%;
+    font-family: futura35;
+  }

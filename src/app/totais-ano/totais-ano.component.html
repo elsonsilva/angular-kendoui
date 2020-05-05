@@ -1,0 +1,25 @@
+<div>
+    <table>
+  <tr *ngFor='let totalAno of totaisAno'> 
+    <td class="tb_nome">META</td>
+    <!-- <td class="tb_num">{{ total.QTD_META_DIA | number : '1.2-2' }}</td>  {minIntegerDigits}.{minFractionDigits}-{maxFractionDigits} -->
+    <td class="tb_num">{{ totalAno.QTD_META_ANO | number : '1.0-2' }}</td>
+  </tr>
+  <tr *ngFor='let totalAno of totaisAno'> 
+    <td class="tb_nome_aferido">AFERIDO ACUMULADO</td>
+    <td class="tb_num_aferido">{{ totalAno.QTD_AFER_ACUM_ANO | number : '1.0-2' }}</td>
+  </tr>
+  <tr *ngFor='let totalAno of totaisAno'> 
+    <td class="tb_nome"><span matTooltip="Diferença entre: META - AFERIDO">     GAP META</span></td>
+    <td class="tb_num"  *ngIf="totalAno.QTD_META_ANO >= totalAno.QTD_AFER_ACUM_ANO; else superado">{{ totalAno.QTD_GAP_META_ANO | number : '1.0-2' }}</td>
+    <ng-template #superado><td class="tb_sucesso">META ATINGIDA</td></ng-template>
+  </tr>
+  <tr *ngFor='let totalAno of totaisAno'> 
+    <td class="tb_nome_erro"><span>ERROS ACUMULADO</span></td>
+  <!-- <tr *ngFor='let total of totais'>  -->
+    <td class="tb_num_erro">{{ totalAno.QTD_ERRO_AFER_ACUM_ANO | number : '1.0-2' }}</td>
+  </tr>
+</table>
+</div>
+
+

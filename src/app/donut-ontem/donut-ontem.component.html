@@ -1,0 +1,15 @@
+<kendo-chart class="kendo-content2">
+  <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+  <ng-template kendoChartDonutCenterTemplate>
+      
+       <app-donut-ontem-center [idProduto]='idSelecionado'></app-donut-ontem-center> 
+    
+  </ng-template>
+  <kendo-chart-series>
+    <kendo-chart-tooltip format="{0:P2}"></kendo-chart-tooltip>
+    <kendo-chart-series-item type="donut" [data]="donuts" categoryField="kind" field="share">
+      <!-- <kendo-chart-series-item-labels position="center" background="none" [content]="labelContent">
+  </kendo-chart-series-item-labels>   -->
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>

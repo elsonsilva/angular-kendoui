@@ -1,0 +1,16 @@
+
+<kendo-chart class="kendo-content2">
+  <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+  
+  <kendo-chart-series>
+    <kendo-chart-tooltip format="{0:n}"></kendo-chart-tooltip>
+      <kendo-chart-series-item type="column"  [stack]="{ type: '100%' }">
+      </kendo-chart-series-item>
+      <kendo-chart-series-item type="column" >
+      </kendo-chart-series-item>
+          <kendo-chart-series-item type="column"   [data]="totais" field="QTD_ERRO_AFER_ACUM_MES">
+          </kendo-chart-series-item>
+      <kendo-chart-series-item type="column"  [data]="totais" field="QTD_AFER_ACUM_MES" >
+      </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>

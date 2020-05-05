@@ -1,0 +1,24 @@
+<kendo-chart class="kendo-content">
+  <kendo-chart-legend position="bottom" orientation="horizontal">
+  </kendo-chart-legend>
+  <kendo-chart-tooltip format="{0:n}"></kendo-chart-tooltip>
+  <kendo-chart-value-axis>
+    <kendo-chart-value-axis-item [title]="{ text: 'Quantidade'}">
+    </kendo-chart-value-axis-item>
+  </kendo-chart-value-axis>
+  <kendo-chart-category-axis>
+    <kendo-chart-category-axis-item [title]="{ text: 'Horas' }">
+    </kendo-chart-category-axis-item>
+  </kendo-chart-category-axis>
+  <kendo-chart-series>
+    <kendo-chart-series-item name="AFERIDO" type="line" style="smooth" width="5" [data]="movimentos" field="QTD_AFER" categoryField="HORA">
+      <kendo-chart-series-item-labels visible="true" format="{0:n}"></kendo-chart-series-item-labels>
+    </kendo-chart-series-item>
+    <kendo-chart-series-item name="HISTÓRICO" type="line" style="smooth" width="5" [data]="movimentos" field="QTD_HIST" categoryField="HORA">
+      <kendo-chart-series-item-labels visible="true" format="{0:n}"></kendo-chart-series-item-labels>
+    </kendo-chart-series-item>
+    <kendo-chart-series-item name="ERROS" type="line" style="smooth" width="5" [data]="movimentos" field="QTD_ERRO_AFER" categoryField="HORA">
+      <kendo-chart-series-item-labels visible="true" format="{0:n}"></kendo-chart-series-item-labels>
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>

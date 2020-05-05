@@ -1,0 +1,404 @@
+<div class="container">
+  <mat-toolbar class="tbar" color="primary">
+
+    <div class="tbar-1">
+      <button type="button" mat-button class="btvolta" (click)="gohome()">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img class="logo" src="assets/MeiosDigitaisCAIXA.png">
+      </button>
+
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="" routerLinkActive="active">Monitor</button>
+        <button mat-menu-item routerLink="/grandesnumeros" routerLinkActive="active">Grandes Números</button>
+        <button mat-menu-item routerLink="/top-erros" routerLinkActive="active">Top Erros</button>
+        <button disabled mat-menu-item>Campanhas</button>
+      </mat-menu>
+    </div>
+
+    <div class="tbar-2">
+      <span class="btnavbar">Grandes Números</span>
+
+      <div *ngIf="btSpin;then hoverStop else clickPlay">here is ignored</div>
+
+      <ng-template #clickPlay>
+        <!-- <button class="btatualiza" type="button" mat-button (click)="iterador($event)" (mouseup)="start($event)"> -->
+        <button class="btatualiza" type="button" mat-button (click)="openDialog($event)">
+          <fa name="play-circle" size="2x"></fa>
+        </button>
+      </ng-template>
+
+      <ng-template #hoverStop>
+        <button class="btatualiza" type="button" mat-button (click)="stop($event)">
+          <fa name="refresh" animation="spin" size="2x"></fa>
+        </button>
+      </ng-template>
+    </div>
+
+  </mat-toolbar>
+  <span #target1></span>
+  <ul class="flex-container wrap">
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="mob_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon" class="mob_white">phone_android</mat-icon>
+          </div>
+          <mat-card-title class="mob_white">MOBILE BANKING</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CLIENTES</mat-card-subtitle>
+        <mat-icon class="icon">people</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CLIENTES_MOB | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p>Quantidade de CPF que acessaram o App Mobile Banking nos últimos 180 dias</p>
+        </mat-card-content>
+        <span class="footer" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="ibc_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon">computer</mat-icon>
+          </div>
+          <mat-card-title>INTERNET BANKING</mat-card-title>
+
+        </mat-card-header>
+        <mat-card-subtitle>CLIENTES</mat-card-subtitle>
+
+        <mat-icon class="icon">people</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CLIENTES_IBC | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p>Quantidade de CPF que acessaram o Internet Banking nos últimos 180 dias</p>
+        </mat-card-content>
+        <span class="footer" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="med_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon">phonelink</mat-icon>
+          </div>
+          <mat-card-title>MEIOS DIGITAIS</mat-card-title>
+
+        </mat-card-header>
+        <mat-card-subtitle>CLIENTES</mat-card-subtitle>
+
+        <mat-icon class="icon">people</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CLIENTES_MED | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p class="content3">Quantidade de CPF que acessaram o Internet Banking e/ou Mobile Banking nos últimos 180 dias</p>
+          <span class="footer2" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+        </mat-card-content>
+
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="med_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon">phonelink</mat-icon>
+          </div>
+          <mat-card-title>MEIOS DIGITAIS</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CONTAS TRANSACIONAIS</mat-card-subtitle>
+        <mat-icon class="icon">business_center</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CONTAS_TRANS | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p class="content2">Quantidade de contas que realizaram transações financeiras no Internet Banking e/ou Mobile Banking nos últimos
+            90 dias</p>
+          <span class="footer2" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+        </mat-card-content>
+
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="mob_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon" class="mob_white">phone_android</mat-icon>
+          </div>
+          <mat-card-title class="mob_white">MOBILE BANKING</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CONTAS QUE UTILIZAM</mat-card-subtitle>
+        <mat-icon class="icon">business_center</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CONTAS_UTL_TODAS | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p>Quantidade de Contas (todas OP) que acessaram o Mobile nos últimos 90 dias</p>
+        </mat-card-content>
+        <span class="footer" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="mob_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon" class="mob_white">phone_android</mat-icon>
+          </div>
+          <mat-card-title class="mob_white">MOBILE BANKING</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CONTAS 001 QUE UTILIZAM</mat-card-subtitle>
+        <mat-icon class="icon">business_center</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CONTAS_UTL_001 | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p>Quantidade de Contas 001 que acessaram o Mobile nos últimos 90 dias</p>
+        </mat-card-content>
+        <span class="footer" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="mob_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon" class="mob_white">phone_android</mat-icon>
+          </div>
+          <mat-card-title class="mob_white">MOBILE BANKING</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CONTAS 003 QUE UTILIZAM</mat-card-subtitle>
+        <mat-icon class="icon">business_center</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CONTAS_UTL_003 | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p>Quantidade de Contas 003 que acessaram o Mobile nos últimos 90 dias</p>
+        </mat-card-content>
+        <span class="footer" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="mob_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon" class="mob_white">phone_android</mat-icon>
+          </div>
+          <mat-card-title class="mob_white">MOBILE BANKING</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CONTAS 013 QUE UTILIZAM</mat-card-subtitle>
+        <mat-icon class="icon">business_center</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CONTAS_UTL_013 | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p>Quantidade de Contas 013 que acessaram o Mobile nos últimos 90 dias</p>
+        </mat-card-content>
+        <span class="footer" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="ibc_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon">computer</mat-icon>
+          </div>
+          <mat-card-title>INTERNET BANKING</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CLIENTES PESSOA JURÍDICA</mat-card-subtitle>
+        <mat-icon class="icon">people</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CLIENTES_IBC_PJ_PRIVADA | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p class="content4">Quantidade de CPF PJ PRIVADA que acessaram o Internet Banking nos últimos 90 dias</p>
+        </mat-card-content>
+        <span class="footer2" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="ibc_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon">computer</mat-icon>
+          </div>
+          <mat-card-title>INTERNET BANKING</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CLIENTES PESSOA JURÍDICA</mat-card-subtitle>
+        <mat-icon class="icon">people</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CLIENTES_IBC_PJ_PUBLICA | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p class="content4">Quantidade de CPF PJ PÚBLICA que acessaram o Internet Banking nos últimos 90 dias</p>
+        </mat-card-content>
+        <span class="footer2" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item" #target2>
+      <mat-card>
+        <mat-card-header class="med_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon">phonelink</mat-icon>
+          </div>
+          <mat-card-title>MEIOS DIGITAIS</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CLIENTES PESSOA JURÍDICA</mat-card-subtitle>
+        <mat-icon class="icon">people</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CLIENTES_PJ_GERAL | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p class="content5">Quantidade de CPF PJ que acessaram o Internet Banking e/ou Mobile Banking nos últimos 90 dias</p>
+          <span class="footer2" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+        </mat-card-content>
+
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="gf_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon" class="mob_white">computer</mat-icon>
+          </div>
+          <mat-card-title class="mob_white2">GERENCIADOR CAIXA EMPRESA</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CLIENTES</mat-card-subtitle>
+        <mat-icon class="icon">people</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CLIENTES_GF | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p class="content4">Quantidade de CPF que acessaram o Gerenciador CAIXA Empresa nos últimos 180 dias</p>
+        </mat-card-content>
+        <span class="footer2" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <li class="flex-item">
+      <mat-card>
+        <mat-card-header class="gf_card">
+          <div mat-card-avatar>
+            <mat-icon class="icon" class="mob_white">computer</mat-icon>
+          </div>
+          <mat-card-title class="mob_white2">GERENCIADOR CAIXA EMPRESA</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-subtitle>CONTAS</mat-card-subtitle>
+        <mat-icon class="icon">business_center</mat-icon>
+        <div>
+          <!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+          <table>
+            <tr *ngFor='let grande of grandes'>
+              <td class="tb_num">{{ grande.CONTAS_GF | number : '1.0-2' }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <mat-card-content>
+          <p class="content4">Quantidade de Contas que acessaram o Gerenciador CAIXA Empresa nos últimos 180 dias</p>
+        </mat-card-content>
+        <span class="footer2" *ngFor='let grande of grandes'>Posição: {{ grande.DATA | date: 'dd/MM/yyyy' }}</span>
+      </mat-card>
+    </li>
+    <!-- <li class="flex-item">5</li>
+    <li class="flex-item">6</li>
+    <li class="flex-item">7</li>
+    <li class="flex-item">8</li> -->
+  </ul>
+
+</div>

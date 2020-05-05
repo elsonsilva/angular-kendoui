@@ -1,0 +1,27 @@
+<div class="example-container">
+  <div class="example-header">
+    <mat-form-field floatPlaceholder="never">
+      <input matInput #filter placeholder="Filtrar produtos por nome" [(ngModel)]='listFilter' >
+      <button mat-button *ngIf="listFilter" matSuffix mat-icon-button aria-label="Clear" (click)="listFilter='';">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="titulo">
+  <span class="titulo-id">ID:</span>
+  <span class="titulo-nm">Nome do produto - SIMCV:</span>
+  </div>
+  <mat-nav-list>
+    <mat-list-item 
+    *ngFor='let product of products | drawerFilter:listFilter' 
+    [class.selected]="product === selectedProduct"
+    (click)="onSelect(product)" >
+       <!-- <a matLine href="#">{{ product.NU_TRANSACAO }}</a><a matLine href="#">{{ product.Descricao_transacao }}</a> -->
+       <!-- <button mat-icon-button (click)="showInfo(product)">
+       </button> -->
+       <!-- <p matLine> -->
+          <span class="badge">{{product.NU_TRANSACAO}}</span> <span class="nome">{{product.Descricao_transacao}}</span>
+      <!-- </p> -->
+    </mat-list-item>
+  </mat-nav-list>
+</div>

@@ -1,0 +1,169 @@
+<div class="container">
+  <mat-toolbar class="tbar" color="primary">
+
+    <div class="tbar-1">
+      <button type="button" mat-button class="btvolta" (click)="gohome()">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img class="logo" src="assets/MeiosDigitaisCAIXA.png">
+      </button>
+
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="" routerLinkActive="active">Monitor</button>
+        <button mat-menu-item routerLink="/grandesnumeros"  routerLinkActive="active">Grandes Números</button>
+        <button mat-menu-item routerLink="/top-erros" routerLinkActive="active">Top Erros</button>
+        <button disabled mat-menu-item>Campanhas</button>
+      </mat-menu>
+    </div>
+
+    <div class="tbar-2">
+      <span class="btnavbar">Top Erros</span>
+
+      <div *ngIf="btSpin;then hoverStop else clickPlay">here is ignored</div>
+
+      <ng-template #clickPlay>
+        <!-- <button class="btatualiza" type="button" mat-button (click)="iterador($event)" (mouseup)="start($event)"> -->
+        <button class="btatualiza" type="button" mat-button (click)="openDialog($event)">
+          <fa name="play-circle" size="2x"></fa>
+        </button>
+      </ng-template>
+
+      <ng-template #hoverStop>
+        <button class="btatualiza" type="button" mat-button (click)="stop($event)">
+          <fa name="refresh" animation="spin" size="2x"></fa>
+        </button>
+      </ng-template>
+    </div>
+
+  </mat-toolbar>
+
+  <!-- LINHA DE BOTOES ACIMA DOS GRÁFICOS -->
+  <mat-toolbar class="tbarbuttons">
+
+    <span>Fonte:&nbsp; </span>
+    <span>SIPER&nbsp; </span>
+    <span>(5.22)</span>
+
+    <span class="posicao">POSIÇÃO: {{ data_dia0 }}</span>
+
+
+  </mat-toolbar>
+
+  <!-- <ul class="flex-container wrap">
+    <li class="flex-item" *ngFor='let toperros of toperros'> -->
+  <div class="c_parent">
+    <div class="c_child">
+        <div class="tb_subt">Dia</div>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia0 }}</span><span class="tb_num">{{ qtd_dia0 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia1 }}</span><span class="tb_num">{{ qtd_dia1 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia2 }}</span><span class="tb_num">{{ qtd_dia2 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia3 }}</span><span class="tb_num">{{ qtd_dia3 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia4 }}</span><span class="tb_num">{{ qtd_dia4 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia5 }}</span><span class="tb_num">{{ qtd_dia5 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia6 }}</span><span class="tb_num">{{ qtd_dia6 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia7 }}</span><span class="tb_num">{{ qtd_dia7 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia8 }}</span><span class="tb_num">{{ qtd_dia8 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_dia9 }}</span><span class="tb_num">{{ qtd_dia9 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="c_child">
+        <span class="tb_subt">Mês</span>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes0 }}</span><span class="tb_num">{{ qtd_mes0 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes1 }}</span><span class="tb_num">{{ qtd_mes1 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes2 }}</span><span class="tb_num">{{ qtd_mes2 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes3 }}</span><span class="tb_num">{{ qtd_mes3 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes4 }}</span><span class="tb_num">{{ qtd_mes4 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes5 }}</span><span class="tb_num">{{ qtd_mes5 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes6 }}</span><span class="tb_num">{{ qtd_mes6 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes7 }}</span><span class="tb_num">{{ qtd_mes7 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes8 }}</span><span class="tb_num">{{ qtd_mes8 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="c_card2">
+        <mat-card-content class="c_content">
+          <span class="tb_nome">{{ desc_mes9 }}</span><span class="tb_num">{{ qtd_mes9 | number : '1.0-2' }}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="resto"></div>
+  </div>
+  <!-- </li>
+  </ul> -->
+
+</div>

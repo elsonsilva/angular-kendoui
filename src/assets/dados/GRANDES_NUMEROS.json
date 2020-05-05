@@ -1,0 +1,18 @@
+[
+    {
+        "CLIENTES_IBC": 6566028,
+        "CLIENTES_MED": 15373551,
+        "CLIENTES_MOB": 12714114,
+        "CONTAS_TRANS": 4975878,
+        "CONTAS_UTL_TODAS": 13778743,
+        "CONTAS_UTL_001": 3911475,
+        "CONTAS_UTL_003": 603810,
+        "CONTAS_UTL_013": 8703692,
+        "CLIENTES_IBC_PJ_PRIVADA": 636100,
+        "CLIENTES_IBC_PJ_PUBLICA": 8660,
+        "CLIENTES_PJ_GERAL": 812318,
+        "CLIENTES_GF": 83,
+        "CONTAS_GF": 100,
+        "DATA": "2018-07-28"
+    }
+]

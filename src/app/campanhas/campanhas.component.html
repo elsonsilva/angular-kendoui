@@ -1,0 +1,71 @@
+<div class="container">
+  <mat-toolbar class="tbar" color="primary">
+
+    <div class="tbar-1">
+      <button type="button" mat-button class="btvolta" (click)="gohome()">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img class="logo" src="assets/MeiosDigitaisCAIXA.png">
+      </button>
+
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="" routerLinkActive="active">Monitor</button>
+        <button mat-menu-item routerLink="/grandesnumeros"  routerLinkActive="active">Grandes Números</button>
+        <button mat-menu-item routerLink="/top-erros" routerLinkActive="active">Top Erros</button>
+        <button disabled mat-menu-item>Campanhas</button>
+      </mat-menu>
+    </div>
+
+    <div class="tbar-2">
+      <span class="btnavbar">Top Erros</span>
+
+      <div *ngIf="btSpin;then hoverStop else clickPlay">here is ignored</div>
+
+      <ng-template #clickPlay>
+        <!-- <button class="btatualiza" type="button" mat-button (click)="iterador($event)" (mouseup)="start($event)"> -->
+        <button class="btatualiza" type="button" mat-button (click)="openDialog($event)">
+          <fa name="play-circle" size="2x"></fa>
+        </button>
+      </ng-template>
+
+      <ng-template #hoverStop>
+        <button class="btatualiza" type="button" mat-button (click)="stop($event)">
+          <fa name="refresh" animation="spin" size="2x"></fa>
+        </button>
+      </ng-template>
+    </div>
+
+  </mat-toolbar>
+
+  <!-- LINHA DE BOTOES ACIMA DOS GRÁFICOS -->
+  <mat-toolbar class="tbarbuttons">
+
+    <span>Fonte:&nbsp; </span>
+    <span>SIPER&nbsp; </span>
+    <span>(5.22)</span>
+
+    <!-- <span class="posicao">POSIÇÃO: {{ data_dia0 }}</span> -->
+
+
+  </mat-toolbar>
+
+  <!-- <ul class="flex-container wrap">
+    <li class="flex-item" *ngFor='let toperros of toperros'> -->
+  <div class="c_parent">
+    <div class="c_child">
+        <div class="tb_subt">Dia</div>
+      <mat-card class="c_card">
+        <mat-card-content class="c_content">
+          <!-- <span class="tb_nome">{{ desc_dia0 }}</span><span class="tb_num">{{ qtd_dia0 | number : '1.0-2' }}</span> -->
+        </mat-card-content>
+      </mat-card>
+      
+    </div>
+    <div class="resto"></div>
+  </div>
+  <!-- </li>
+  </ul> -->
+
+</div>

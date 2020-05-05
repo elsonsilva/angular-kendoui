@@ -1,0 +1,33 @@
+<div>
+  <!-- <p>{{idProduto}}</p> -->
+<!-- <table *ngIf='totaisDia && totaisDia.length'> -->
+    <table>
+  <tr *ngFor='let totalOntem of totaisOntem'> 
+    <td class="tb_nome">META</td>
+    <!-- <td class="tb_num">{{ total.QTD_META_DIA | number : '1.2-2' }}</td>  {minIntegerDigits}.{minFractionDigits}-{maxFractionDigits} -->
+    <td class="tb_num">{{ totalOntem.QTD_META_DIA | number : '1.0-2' }}</td>
+  </tr>
+  <tr *ngFor='let totalOntem of totaisOntem'> 
+    <td class="tb_nome_aferido">AFERIDO ACUMULADO</td>
+    <td class="tb_num_aferido">{{ totalOntem.QTD_AFER_ACUM_DIA | number : '1.0-2' }}</td>
+  </tr>
+  <tr *ngFor='let totalOntem of totaisOntem'> 
+    <td class="tb_nome"><span matTooltip="Diferença entre: META - AFERIDO">     GAP META</span></td>
+    <td class="tb_num"  *ngIf="totalOntem.QTD_META_DIA >= totalOntem.QTD_AFER_ACUM_DIA; else superado">{{ totalOntem.QTD_GAP_META_DIA | number : '1.0-2' }}</td>
+    <ng-template #superado><td class="tb_sucesso">META ATINGIDA</td></ng-template>
+  </tr>
+  <tr *ngFor='let totalOntem of totaisOntem'> 
+    <td class="tb_nome_historico"><span matTooltip="Média dos últimos 3 dias úteis correspondentes">HISTÓRICO ACUMULADO</span></td>
+  <!-- <tr *ngFor='let total of totais'>  -->
+    <td class="tb_num_historico">{{ totalOntem.QTD_HIST_ACUM_DIA | number : '1.0-2' }}</td>
+  </tr>
+  <tr *ngFor='let totalOntem of totaisOntem'> 
+    <td class="tb_nome_erro"><span>ERROS ACUMULADO</span></td>
+  <!-- <tr *ngFor='let total of totais'>  -->
+    <td class="tb_num_erro">{{ totalOntem.QTD_ERRO_AFER_ACUM_DIA | number : '1.0-2' }}</td>
+  </tr>
+
+</table>
+</div>
+
+

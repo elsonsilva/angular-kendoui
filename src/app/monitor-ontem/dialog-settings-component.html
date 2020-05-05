@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Configurar a troca de telas</h1>
+<p>Alternar para:</p>
+
+<mat-checkbox [checked]="checked1" (change)="toggle1()">Hoje, Ontem, Mês e Ano</mat-checkbox>
+<mat-checkbox [checked]="checked2" (change)="toggle2()">Grandes Números (a cada 3 produtos)</mat-checkbox>
+<mat-checkbox [checked]="checked3" (change)="toggle3()">Top Erros (a cada 3 produtos)</mat-checkbox>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="onOK()">OK</button>
+</div>

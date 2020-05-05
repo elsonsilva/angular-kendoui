@@ -1,0 +1,120 @@
+.example-container {
+    // display: flex;
+    // flex-direction: column;
+   // width: 500px;
+
+  }
+
+  .titulo {
+    margin-top: 5px;
+    font-family: futura35;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(156, 170, 177);
+    display: flex;
+    flex-direction: row;
+  }
+
+  .titulo-id {
+    padding-left: 20px;
+  }
+
+  .titulo-nm {
+    padding-left: 44px;
+  }
+
+ 
+  .example-header {
+    height: 64px;
+    display: flex;
+    // align-items: baseline;
+    padding: 0px 24px 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    // justify-content: space-around;
+  }
+  
+  .mat-form-field {
+   // display: flex;
+    font-family: futura35;
+    font-size: 1.6em;
+    flex: 1;
+    margin-left: 0px;
+    margin-right: 5px;
+  }
+
+  .selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+
+  .mat-nav-list {
+    
+    margin: 0.5em 0 1em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 30em;
+  }
+
+  .mat-nav-list .mat-list-item {
+    cursor: pointer;
+    font-family: futura35;
+   // position: relative;
+    left: 0px;
+    background-color: rgba(240, 236, 236, 0.568);
+    margin: 7px 10px 0px 10px;
+    padding:  0px 10px 5px 0px;
+    height: 30px;
+    border-radius: 4px;
+    // line-height: 5px;
+  }
+
+  .mat-nav-list .mat-list-item.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .mat-nav-list .mat-list-item:hover {
+    color: #607D8B;
+    background-color: rgba(221, 221, 221, 0.699);
+    font-weight: bold;
+    // left: .1em;
+  }
+  // .mat-row-cell {
+  //   position: relative;
+  //   top: -50px;
+  // }
+  .mat-nav-list .mat-list-item .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+   // padding: 0 10px 0 10px;
+    background-color: rgb(96, 118, 139);
+    line-height: 0px;
+    position: relative;
+    left: -15px;
+    top: 3px;
+    padding-top: 18px;
+    padding-left: 10px;
+    height: 17px;
+    width: 50px;
+    margin-right: 5px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .mat-nav-list .mat-list-item .nome {
+    // display: inline-block;
+     font-size: 20px;
+     
+    // color: white;
+    // padding: 0 0.7em 0 0.4em;
+    background-color: rgb(96, 118, 139);
+    line-height: 20px;
+    position: relative;
+    left: -5px;
+    top: -8px;
+    height: 0;
+    // margin-right: .8em;
+    // border-radius: 4px 0 0 4px;
+  }
+
+

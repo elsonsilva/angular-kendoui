@@ -1,0 +1,27 @@
+<kendo-chart class="kendo-content2">
+  <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+  <kendo-chart-tooltip format="{0:n}"></kendo-chart-tooltip>
+  <kendo-chart-value-axis>
+    <kendo-chart-value-axis-item [title]="{ text: 'Quantidade' }">
+    </kendo-chart-value-axis-item>
+  </kendo-chart-value-axis>
+
+  <kendo-chart-category-axis>
+    <kendo-chart-category-axis-item [title]="{ text: 'Horas' }">
+    </kendo-chart-category-axis-item>
+  </kendo-chart-category-axis>
+
+  <kendo-chart-series>
+    <kendo-chart-series-item name="AFERIDO" type="line" [data]="acumulados" field="QTD_AFER_ACUM_DIA" categoryField="HORA">
+      <kendo-chart-series-item-labels visible="true" format="{0:n}"></kendo-chart-series-item-labels>
+    </kendo-chart-series-item>
+    <kendo-chart-series-item name="HISTÓRICO" type="area" [data]="acumulados" field="QTD_HIST_ACUM_DIA" categoryField="HORA">
+      <kendo-chart-series-item-labels visible="true" format="{0:n}"></kendo-chart-series-item-labels> 
+   </kendo-chart-series-item>
+   <kendo-chart-series-item name="ERROS" type="area" [data]="acumulados" field="QTD_ERRO_AFER_ACUM_DIA" categoryField="HORA">
+    <kendo-chart-series-item-labels visible="true" format="{0:n}"></kendo-chart-series-item-labels> 
+ </kendo-chart-series-item>
+   
+  </kendo-chart-series>
+
+</kendo-chart>

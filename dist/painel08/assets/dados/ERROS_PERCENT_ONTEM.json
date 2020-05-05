@@ -1,0 +1,31 @@
+[{
+    "DATA": "2018-01-10",
+    "HORA": 14,
+    "NU_TRANSACAO": 21180,
+    "kind": "AFERIDO",
+    "share": "0.5775"
+  }, {
+    "DATA": "2018-01-10",
+    "HORA": 13,
+    "NU_TRANSACAO": 21222,
+    "kind": "AFERIDO",
+    "share": "0.4103"
+  }, {
+    "DATA": "2018-01-10",
+    "HORA": 13,
+    "NU_TRANSACAO": 21505,
+    "kind": "AFERIDO",
+    "share": "0.1915"
+  }, {
+    "DATA": "2018-01-10",
+    "HORA": 14,
+    "NU_TRANSACAO": 24151,
+    "kind": "AFERIDO",
+    "share": "0.1686"
+  }, {
+    "DATA": "2018-01-10",
+    "HORA": 14,
+    "NU_TRANSACAO": 26386,
+    "kind": "AFERIDO",
+    "share": "1.13"
+  }]
